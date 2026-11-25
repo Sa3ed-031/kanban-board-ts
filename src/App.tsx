@@ -15,7 +15,7 @@ const sampleTasks: Task[] = [
     status: "todo",
     createdAt: "",
     description: "medium priority task.",
-    dueDate: "wednesday",
+    dueDate: "2026-11-3",
   },
   {
     id: "3",
@@ -50,7 +50,7 @@ function App() {
       // 'editingTask' is possibly 'null'.
       dispatch({
         type: "UPDATE_TASK",
-        payload: { id: editingTask.id, ...data },
+        payload: { ...data, id: editingTask.id },
       });
     } else {
       dispatch({ type: "ADD_TASK", payload: data });

@@ -36,17 +36,17 @@ function TaskCard({ task, onEdit, onDelete, markDone }: TaskCardProps) {
         </button>
         <button
           type="button"
-          className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-blue-700 bg-red-200"
+          className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-blue-700 bg-blue-200"
           onClick={() => {
             onEdit(task);
           }}
         >
           Edit
         </button>
-        {task.status != "done" && (
+        {task.status !== "done" && (
           <button
             type="button"
-            className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-green-700 bg-red-200"
+            className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-green-700 bg-green-200"
             onClick={() => {
               markDone(task.id);
             }}
