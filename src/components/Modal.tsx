@@ -10,14 +10,14 @@ interface ModalProps {
 function Modal({ title, onClose, children }: ModalProps) {
   return (
     <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4"
+      className="p-4 fixed inset-0 z-50 grid place-items-center bg-black/60"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-2xl bg-[#1A223C] p-6"
+        className="w-full max-w-md flex flex-col gap-4 rounded-2xl bg-[#1A223C] p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-4 text-xl font-bold">{title}</h2>
+        <h2 className="text-xl font-bold">{title}</h2>
         {children}
       </div>
     </div>

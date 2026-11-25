@@ -30,9 +30,8 @@ export function tasksReducer(state: Task[], action: TaskAction): Task[] {
       });
 
     default: {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const _exhaustive: never = action;
-      return state;
+      throw new Error(`Unknown action: ${JSON.stringify(_exhaustive)}`);
     }
   }
 }

@@ -13,7 +13,7 @@ function Column({ column, tasks, onEdit, onDelete, markDone }: ColumnProps) {
   return (
     <section className="flex flex-col gap-3 rounded-2xl bg-white/5 p-4">
       {/* 1. عنوان العمود، وجنبه عدد المهام (تلميح: tasks.length) */}
-      <div className="flex items-center justify-between gap-2">
+      <div className="font-bold flex items-center justify-between gap-2">
         <h2>{column.title}</h2>
         <span>{tasks.length}</span>
       </div>

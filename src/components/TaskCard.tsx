@@ -10,7 +10,7 @@ interface TaskCardProps {
 
 function TaskCard({ task, onEdit, onDelete, markDone }: TaskCardProps) {
   return (
-    <div className="wfit p-4 flex flex-col items-start gap-3 rounded-xl bg-[#1A223C]">
+    <div className="w-full p-4 flex flex-col items-start gap-3 rounded-xl bg-[#1A223C]">
       {/* 1. العنوان، و PriorityBadge جنبه */}
       <div className="flex items-center justify-center gap-2">
         <h3>{task.title}</h3>
@@ -24,10 +24,10 @@ function TaskCard({ task, onEdit, onDelete, markDone }: TaskCardProps) {
       {task.dueDate && <span className="text-slate-400">{task.dueDate}</span>}
 
       {/* 4. زرين: Edit و Delete */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap gap-2">
         <button
           type="button"
-          className="p-1 px-2 font-bold rounded-lg cursor-pointer active:scale-95 text-red-700 bg-red-200"
+          className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-red-700 bg-red-200"
           onClick={() => {
             onDelete(task.id);
           }}
@@ -36,22 +36,24 @@ function TaskCard({ task, onEdit, onDelete, markDone }: TaskCardProps) {
         </button>
         <button
           type="button"
-          className="p-1 px-2 font-bold rounded-lg cursor-pointer active:scale-95 text-blue-700 bg-blue-200"
+          className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-blue-700 bg-red-200"
           onClick={() => {
             onEdit(task);
           }}
         >
           Edit
         </button>
-        <button
-          type="button"
-          className="p-1 px-2 font-bold rounded-lg cursor-pointer active:scale-95 text-green-700 bg-green-200"
-          onClick={() => {
-            markDone(task.id);
-          }}
-        >
-          Mark Done
-        </button>
+        {task.status != "done" && (
+          <button
+            type="button"
+            className="px-2 py-1 text-sm font-bold whitespace-nowrap cursor-pointer active:scale-95 rounded-lg text-green-700 bg-red-200"
+            onClick={() => {
+              markDone(task.id);
+            }}
+          >
+            Mark Done
+          </button>
+        )}
       </div>
     </div>
   );
