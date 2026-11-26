@@ -58,6 +58,7 @@ This project was my TypeScript playground. Here are the ideas I used, and where 
 3. **TypeScript is a refactoring partner.** When I merged a `markDone` prop into a more general `onMove`, the compiler pointed to every place I still had to update.
 
 📘 My full notes, with every question I worked through and its explanation: [`docs/TYPESCRIPT_NOTES.md`](./docs/TYPESCRIPT_NOTES.md) (in Arabic).
+
 🗺️ The day-by-day plan I followed to build it: [`docs/LEARNING_PLAN.md`](./docs/LEARNING_PLAN.md) (in Arabic).
 
 ---
