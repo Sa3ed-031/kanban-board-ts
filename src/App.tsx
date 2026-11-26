@@ -1,42 +1,13 @@
-import { useReducer, useState } from "react";
+import { useState } from "react";
 
 import Board from "./components/Board";
 import Modal from "./components/Modal";
 import TaskForm from "./components/TaskForm";
+import { useTasks } from "./hooks/useTasks";
 import type { NewTask, Task } from "./types/task";
-import { tasksReducer } from "./reducers/tasksReducer";
-
-const sampleTasks: Task[] = [
-  { id: "1", title: "T1", priority: "low", status: "todo", createdAt: "" },
-  {
-    id: "2",
-    title: "T2",
-    priority: "medium",
-    status: "todo",
-    createdAt: "",
-    description: "medium priority task.",
-    dueDate: "2026-11-03",
-  },
-  {
-    id: "3",
-    title: "T3",
-    priority: "high",
-    status: "done",
-    createdAt: "",
-    description: "in pregress task.",
-  },
-  {
-    id: "4",
-    title: "T4",
-    priority: "medium",
-    status: "in-progress",
-    createdAt: "",
-    description: "in pregress task.",
-  },
-];
 
 function App() {
-  const [tasks, dispatch] = useReducer(tasksReducer, sampleTasks);
+  const { tasks, dispatch } = useTasks();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
