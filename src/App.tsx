@@ -15,7 +15,7 @@ const sampleTasks: Task[] = [
     status: "todo",
     createdAt: "",
     description: "medium priority task.",
-    dueDate: "2026-11-3",
+    dueDate: "2026-11-03",
   },
   {
     id: "3",
@@ -79,8 +79,8 @@ function App() {
           setIsFormOpen(true);
         }}
         onDelete={(id) => dispatch({ type: "DELETE_TASK", payload: { id } })}
-        markDone={(id) =>
-          dispatch({ type: "MOVE_TASK", payload: { id, status: "done" } })
+        onMove={(id, status, beforeId) =>
+          dispatch({ type: "MOVE_TASK", payload: { id, status, beforeId } })
         }
       />
 

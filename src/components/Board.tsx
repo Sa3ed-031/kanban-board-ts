@@ -1,15 +1,15 @@
 import Column from "./Column";
-import type { Task } from "../types/task";
+import type { Status, Task } from "../types/task";
 import { COLUMNS } from "../constants/columns";
 
 interface BoardProps {
   tasks: Task[];
   onEdit: (task: Task) => void;
   onDelete: (id: string) => void;
-  markDone: (id: string) => void;
+  onMove: (id: string, status: Status, beforeId?: string) => void;
 }
 
-function Board({ tasks, onEdit, onDelete, markDone }: BoardProps) {
+function Board({ tasks, onEdit, onDelete, onMove }: BoardProps) {
   return (
     <section className="md:grid-cols-3 p-4 grid gap-4 rounded-2xl bg-white/5">
       {COLUMNS.map((column) => (
@@ -19,7 +19,7 @@ function Board({ tasks, onEdit, onDelete, markDone }: BoardProps) {
           tasks={tasks.filter((t) => t.status === column.id)}
           onEdit={onEdit}
           onDelete={onDelete}
-          markDone={markDone}
+          onMove={onMove}
         />
       ))}
     </section>

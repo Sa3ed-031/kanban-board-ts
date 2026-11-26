@@ -24,4 +24,7 @@ export type TaskAction =
   | { type: "ADD_TASK"; payload: NewTask }
   | { type: "UPDATE_TASK"; payload: TaskUpdate }
   | { type: "DELETE_TASK"; payload: { id: string } }
-  | { type: "MOVE_TASK"; payload: { id: string; status: Status } };
+  | {
+      type: "MOVE_TASK";
+      payload: { id: string; status: Status; beforeId?: string };
+    };
