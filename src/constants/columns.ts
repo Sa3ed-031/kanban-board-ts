@@ -1,4 +1,4 @@
-import type { Column, Priority } from "../types/task";
+import type { Column, Priority, PriorityFilter } from "../types/task";
 
 export const COLUMNS: Column[] = [
   {
@@ -20,3 +20,10 @@ export const PRIORITY_LABELS: Record<Priority, string> = {
   medium: "Medium",
   high: "High",
 };
+
+export const PRIORITY_FILTERS: PriorityFilter[] = [
+  "all",
+  "low",
+  "medium",
+  "high",
+];
