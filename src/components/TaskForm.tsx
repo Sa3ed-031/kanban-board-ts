@@ -41,6 +41,8 @@ function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
       <input
         type="text"
         name="title"
+        placeholder="Task title"
+        aria-label="Task title"
         className="p-1 px-2 rounded-xl border-2 border-gray-500"
         value={form.title}
         onChange={handleChange}
@@ -50,6 +52,8 @@ function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
 
       <textarea
         name="description"
+        placeholder="Description (optional)"
+        aria-label="Task description"
         className="p-1 px-2 rounded-xl border-2 border-gray-500"
         value={form.description}
         onChange={handleChange}
@@ -57,6 +61,7 @@ function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
 
       <select
         name="priority"
+        aria-label="Priority"
         className="p-1 px-2 rounded-xl border-2 border-gray-500"
         value={form.priority}
         onChange={handleChange}
@@ -75,6 +80,7 @@ function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
       <input
         type="date"
         name="dueDate"
+        aria-label="Due date"
         className="p-1 px-2 rounded-xl border-2 border-gray-500"
         value={form.dueDate}
         onChange={handleChange}

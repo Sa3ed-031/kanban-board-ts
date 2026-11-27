@@ -49,6 +49,7 @@ function App() {
               <button
                 key={f}
                 type="button"
+                aria-pressed={filter === f}
                 className={`p-1 px-2 text-sm font-bold rounded-lg ${filter === f ? "text-white bg-indigo-600" : "text-slate-300 bg-white/5"}`}
                 onClick={() => setFilter(f)}
               >
@@ -86,7 +87,7 @@ function App() {
         >
           <TaskForm
             // Type 'Task | null' is not assignable to type 'Task | undefined',
-            initialTask={editingTask ?? undefined} // if {editingTask} just, cause error because it can be null in this case, but in the definition on initialTask it can be Task | undefined(no null) so writing undefind explicity will make it match the definition.
+            initialTask={editingTask ?? undefined} // TaskForm expects undefined, not null, so writing undefind explicity will make it match the definition.
             onSubmit={handleSubmit}
             onCancel={closeForm}
           />

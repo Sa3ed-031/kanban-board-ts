@@ -14,6 +14,9 @@ function Modal({ title, onClose, children }: ModalProps) {
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
         className="w-full max-w-md flex flex-col gap-4 rounded-2xl bg-[#1A223C] p-6"
         onClick={(e) => e.stopPropagation()}
       >

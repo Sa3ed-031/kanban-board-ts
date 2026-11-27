@@ -1,6 +1,7 @@
 import type { DragEvent } from "react";
 import type { Status, Task } from "../types/task";
 import PriorityBadge from "./PriorityBadge";
+import { formatDate } from "../utils/date";
 
 interface TaskCardProps {
   task: Task;
@@ -28,7 +29,9 @@ function TaskCard({ task, onEdit, onDelete, onMove }: TaskCardProps) {
 
       {task.description && <span>{task.description}</span>}
 
-      {task.dueDate && <span className="text-slate-400">{task.dueDate}</span>}
+      {task.dueDate && (
+        <span className="text-slate-400">{formatDate(task.dueDate)}</span>
+      )}
 
       <div className="flex flex-wrap gap-2">
         <button
