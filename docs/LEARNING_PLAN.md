@@ -5,6 +5,7 @@
 **Time:** about 7 days at 1 to 3 hours a day.
 
 > Golden rules
+>
 > - `"strict": true` stays on. Never turn it off.
 > - No `any`. If you're stuck, use `unknown` and narrow it, or ask for help.
 > - Read every TypeScript error slowly. Every error is a lesson.
@@ -14,6 +15,7 @@
 ## 1. Features
 
 ### Must have (MVP)
+
 - 3 columns: **To Do**, **In Progress**, **Done**
 - Add a task: title, description (optional), priority (low / medium / high), due date (optional)
 - Edit a task and delete a task
@@ -23,6 +25,7 @@
 - Responsive: columns stack vertically on mobile
 
 ### Nice to have (after the MVP)
+
 - Search tasks by title
 - Filter by priority
 - Sort by due date or priority
@@ -43,10 +46,10 @@ export type Priority = "low" | "medium" | "high";
 export interface Task {
   id: string;
   title: string;
-  description?: string;      // optional
+  description?: string; // optional
   priority: Priority;
   status: Status;
-  dueDate?: string;          // ISO date string, optional
+  dueDate?: string; // ISO date string, optional
   createdAt: string;
 }
 
@@ -107,11 +110,13 @@ src/
 ## 4. Day-by-day plan
 
 ### Day 1: Setup and types
+
 ```bash
 npm create vite@latest kanban-board -- --template react-ts
 cd kanban-board
 npm install
 ```
+
 - Install Tailwind (follow the official Vite guide).
 - Write `src/types/task.ts` exactly as above.
 - Write `src/constants/columns.ts` with a typed array: `export const COLUMNS: Column[] = [...]`.
@@ -119,6 +124,7 @@ npm install
 **You'll learn:** type aliases, interfaces, union types, optional properties, `Omit` and `Partial`.
 
 ### Day 2: Static UI with typed props
+
 - Build `Board`, `Column` and `TaskCard` with **hardcoded sample tasks** (a `Task[]` array).
 - Type every component's props:
   ```ts
@@ -140,6 +146,7 @@ npm install
 **You'll learn:** typing props, function types, `Record<K, V>`, and how TS catches a missing priority.
 
 ### Day 3: State with useReducer
+
 - Write `tasksReducer` with a `switch` on `action.type`.
 - Use `crypto.randomUUID()` for ids and `new Date().toISOString()` for `createdAt`.
 - Add an exhaustive check at the end of the switch:
@@ -154,8 +161,10 @@ npm install
 **You'll learn:** discriminated unions, narrowing, the `never` type, immutable updates with types.
 
 ### Day 4: The form
+
 - Build `TaskForm` for both **add** and **edit** modes.
 - Type the events:
+
   ```ts
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -163,12 +172,14 @@ npm install
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { ... };
   ```
+
 - Validate: title is required, and show an error message if it's empty.
 - Build a reusable `Modal` that accepts `children: React.ReactNode`.
 
 **You'll learn:** event types, `React.ReactNode`, controlled inputs with typed state.
 
 ### Day 5: Drag & drop
+
 - On `TaskCard`: `draggable`, and `onDragStart` saves the task id:
   ```ts
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
@@ -181,6 +192,7 @@ npm install
 **You'll learn:** `React.DragEvent`, typing DOM events, passing typed callbacks down.
 
 ### Day 6: Generic Local Storage hook
+
 ```ts
 function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(() => {
@@ -199,12 +211,14 @@ function useLocalStorage<T>(key: string, initialValue: T) {
   return [value, setValue] as const;
 }
 ```
+
 - Combine it with the reducer inside `useTasks()`, which returns `{ tasks, addTask, updateTask, deleteTask, moveTask }`.
 - Write `isOverdue(task: Task): boolean` in `utils/date.ts` and show an "Overdue" badge.
 
 **You'll learn:** generics `<T>`, `as const`, typing a custom hook's return value.
 
 ### Day 7: Polish, deploy, README
+
 - Responsive check at 375px, 768px and 1440px.
 - Empty states ("No tasks yet").
 - Apply your brand: navy `#101828` background, indigo `#4F39F6` accent, Poppins font.
@@ -234,10 +248,14 @@ By the end you should be comfortable with:
 ## 6. After this project
 
 Move to the **real-time chat app with TypeScript + Firebase**. You'll reuse:
+
 - interfaces for your data (`User`, `Message`, `ChatRoom`)
 - discriminated unions for app state
 - generic hooks (`useCollection<T>()`)
 
 ## 📚 References
+
 - React TypeScript Cheatsheet
 - TypeScript Handbook (official docs)
+
+Extra: reordering tasks within a column, and a saved priority filter.
