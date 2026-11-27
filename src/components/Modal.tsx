@@ -1,4 +1,4 @@
-// type for any element that can be used, formal type for children.
+// ReactNode: anything React can render, formal type for children.
 import type { ReactNode } from "react";
 
 interface ModalProps {

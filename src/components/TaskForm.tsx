@@ -32,8 +32,6 @@ function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
       return;
     }
     onSubmit(form);
-    // 1. إذا العنوان فاضي بعد trim(): حط رسالة خطأ بالـ error ووقّف (return)
-    // 2. وإلا: ابعت الـ form لـ onSubmit
   };
 
   return (

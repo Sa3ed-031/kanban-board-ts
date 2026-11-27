@@ -14,17 +14,14 @@ function Column({ column, tasks, onEdit, onDelete, onMove }: ColumnProps) {
   const [isOver, setIsOver] = useState(false);
 
   const handleDragOver = (e: DragEvent<HTMLElement>) => {
-    // اللحظة 2: اسمح بالإفلات
     e.preventDefault();
   };
 
   const handleDragLeave = (e: DragEvent<HTMLElement>) => {
-    const next = e.relatedTarget; // العنصر يلي رايحله الماوس
+    const next = e.relatedTarget;
 
-    // إذا next جوّا العمود: لا تعمل شي
+    // narrow EventTarget to Node so contains() accepts it
     if (next instanceof Node && e.currentTarget.contains(next)) return;
-    // contains accept just "Node", and "next" has a "EventTarget | null" type, so we narrowed the type to "Node".
-
     setIsOver(false);
   };
 

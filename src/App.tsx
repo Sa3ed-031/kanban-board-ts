@@ -28,7 +28,6 @@ function App() {
 
   function handleSubmit(data: NewTask) {
     if (editingTask) {
-      // 'editingTask' is possibly 'null'.
       dispatch({
         type: "UPDATE_TASK",
         payload: { ...data, id: editingTask.id },
@@ -86,8 +85,7 @@ function App() {
           onClose={closeForm}
         >
           <TaskForm
-            // Type 'Task | null' is not assignable to type 'Task | undefined',
-            initialTask={editingTask ?? undefined} // TaskForm expects undefined, not null, so writing undefind explicity will make it match the definition.
+            initialTask={editingTask ?? undefined} // TaskForm expects undefined, not null.
             onSubmit={handleSubmit}
             onCancel={closeForm}
           />
